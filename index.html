@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>To-Do List App</title><!--Title-->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>To-Do List WebApp</h2>
+        <p>by Jael Roman</p>
+    </header>
+    
+<div class="container"> <!--This div element is used like a wrapper to hold other content-->
+    
+    <div class="todo-app"><!--This div element is specific to the to-do list app-->
+        <h2>To-Do List <img src="images/icon.png"></h2> <!--This shows the to-do list image icon next to the title-->
+        <div class="row"><!--this is used to group elements by using grid-based layouts (align things in rows/columns) -->
+            <input type="text" id="input-box" placeholder="What needs to get done?"><!--This shows the grey input box and guides users to type, id is used to access and modify value the user types-->
+            <button id="addBtn" onclick="addTask()">Add</button><!--button action with a function written in js, button appears as "Add"-->
+        </div>
+        <ul id="list-container"> <!--**white container with id that displays the list, <ul> creates an unordered list-->
+            <!--<li class="checked">Task 1</li> **this tests the list visuals.**
+            <li>Task 2</li>
+            <li>Task 3</li>-->
+        </ul>
+    </div>
+    <div class="completed-tasks">
+        <h2>Completed Tasks </h2>
+        <div class="row"></div>
+        <ul id="completed-container"></ul>
+    </div>
+</div>
+<footer>
+    <h6>Copyright 2025, All Rights Reserved</h6>
+</footer>
+<script src="script.js"></script> <!--This uses the source script-->
+</body>
+</html>
+

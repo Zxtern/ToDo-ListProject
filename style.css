@@ -1,0 +1,135 @@
+*{/*the beginning "*" symbol is a universal selector*/
+    margin: 0;/*this removes default margin by browsers adding their own(can cause unexpected spacing*/
+    padding: 0;/*Similar to margin, removes any defaults*/
+    font-family: 'Verdana', sans-serif;/*Sets the font for all text ('Arial')*/
+    box-sizing: border-box; /*Changes how the width and height elements are calculated; prevents elements from expanding unexpectedly*/
+}
+header{
+    text-align: center;
+    background: rgb(255, 255, 255);
+    color:#b41c45;
+    padding: 5px;
+}
+
+.container{/*the .container is in another element, the width 100% will stretch to the full width of the parent*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;/*it will take up all available horizontal space, to whatever size the parent is*/
+    min-height: 85vh;/*sets minimum height of.container to be 100% of the viewport height (vh means: viewport height); ensures .container will always be at least as tall as user screen*/
+    background: url(images/cherry_blossom.gif);/*linear-gradient(135deg, #f7f0c6, #ff5945); linear-gradient is self explanitory. (A 135 deg specifies the angle of gradient(starting from top-left to bottom right)*/
+    background-size: cover;
+    padding: 10px;/*This padding fixed my top white empty space issue, it is the space between the content of element & its border edge*/
+/*cont'd so that it doesnt touch the container's edges directly*/
+}
+.todo-app{
+    width: 100%;/**/
+    max-width: 540px;/*despite width set to 100%, this element will not exceed 540px in width*/
+    background:#fff;/**/
+    margin: 100px auto 100px;/*top margin (adds space above the element to push down), auto (left & right margins) center the element horizontally, bottom margin(adds space below the element*/
+    padding: 40px 30px 70px;/*40px refers to top padding, 30px refers to space inside both sides, 70px refers to extra space inside at the bottom*/
+    border-radius: 10px;/*rounds the corners at 10px*/
+}
+.todo-app h2{/*the h2 element is inside the .todo-app class*/
+    color: #b41c45;/**/
+    display: flex;/*makes the <h2> behave like a flex container*/
+    align-items: center;/*since display: flex; turns <h2> into a flex container, align-items: center ensures that any child elements (such as icon or img) are vertically centered*/
+    margin-bottom: 20px;/*adds 20px of space below <h2>*/
+}
+.todo-app h2 img{/*targets all img> elements inside an <h2> in .todo-app*/
+    width: 30px;/*sets the <img> to 30px of width*/
+    margin-left: 10px;/*10px of space to the left.*/
+}
+.row{
+    display: flex;/*Flexbox will direct children become flex items, by default, arranges its children in horizontal row*/
+    align-items: center;/*verticle alignment*/
+    justify-content: space-between;/*distributes equal space between items, no space at edges of container*/
+    background: #ffefef;/**/
+    border-radius: 30px;/*rounded corners*/
+    padding-left: 20;/**/
+    margin-bottom: 20px;/**/
+}
+input{/**/
+    flex: 1;/*if flex value set to 1, it takes up all available space within its flex container*/
+    border: none;/*removes border*/
+    outline: none;/*removes outline that appears around the input element*/
+    background: transparent;/*sets background input field to transparent*/
+    padding: 10px;/**/
+    font-size: 14px;/*mistake?*/
+}
+button{/**/
+    border: none;/**/
+    outline: none;/**/
+    padding: 16px 50px;/**/
+    background: #b41c45;/**/
+    color: #fff;/**/
+    font-size: 16px;/**/
+    cursor: pointer;/*changes the mouse cursor to a pointer, which is usually a hand*/
+    border-radius: 40px;/**/
+}
+ul li{/**/
+    color: #b41c45;
+    list-style: none;/*removes default style(numbers/bullets) in unordered list*/
+    font-size: 17px;/**/
+    padding: 12px 8px 12px 50px;/*(top, right, bottom, left)*/
+    user-select: none;/*prevents users from selecting/highlighting text inside list.*/
+    cursor: pointer;/**/
+    position: relative;/*list item is positions relative to its normal position in document flow allows ajustments positioning top, bottom, lh, rh*/
+}
+ul li::before{/*this is a pseudo element, applied to every li. Allows style an element that does not actually exist in the HTMl code. Inserts content before the actual content*/
+    content:"";/*crucial property; defines what is displayed inside. It is empty but we need the pseudo-element to appear visually (like a container, can be styled with other properties)*/ 
+    position: absolute;/*pseudo-element is positioned relative tp the nearest positioned ancestor.*/
+    height: 28px;/**/
+    width: 28px;/**/
+    border-radius: 50%;/**/
+    background-image: url(images/unchecked.png);/*the circular element will display this image*/
+    background-position: center;/**/
+    background-size: contain; /*this solved my issue to make my png image fit; makes sure that the background image scales to fit within the circle-->*/
+    top: 12px;/**/
+    left: 8px;/**/
+}
+/*further explaining positon: absolute;.. you're essentially telling the browser that the element should be removed from the normal document flow(meaning it wont affect the layout of other elements- it wont push or pull other elements around it*/ 
+ul li.checked{/**/
+    color: #ffb0b0;/**/
+    text-decoration: line-through;/**/
+}
+ul li.checked::before{/**/
+    background-image: url(images/checked.png);/**/
+}
+ul li span{/*span element, aq generic inline container for phrasing content; used to group elements for styling purposes*/
+    position: absolute;/*removes the span from normal document flow*/
+    right: 0;/**/
+    top: 5px;/**/
+    width: 40px;/**/
+    height: 40px;/**/
+    font-size: 22px;/**/
+    color: #555;/**/
+    line-height: 40px;/*adjusts the line height of the text inside span; ensures that the text is vertically centered within 40px square*/
+    text-align: center;/**/
+    border-radius: 50%/**/
+}
+ul li span:hover {/**/
+    background: #8b1e377f;/**/
+}
+.completed-tasks{
+    width: 100%;
+    max-width: 300px;/*despite width set to 100%, this element will not exceed 540px in width*/
+    background:#fff;/**/
+    margin: 100px auto 100px;/*top margin (adds space above the element to push down), auto (left & right margins) center the element horizontally, bottom margin(adds space below the element*/
+    padding: 40px 30px 70px;/*40px refers to top padding, 30px refers to space inside both sides, 70px refers to extra space inside at the bottom*/
+    border-radius: 10px;
+
+}
+
+.completed-tasks h2{
+    color: #ee8ea8;
+    display: flex;/*makes the <h2> behave like a flex container*/
+    align-items: center;/*since display: flex; turns <h2> into a flex container, align-items: center ensures that any child elements (such as icon or img) are vertically centered*/
+    margin-bottom: 20px;
+}
+footer {
+    padding: 25px;
+    text-align: center;
+    color: #ee8ea8;
+}
+
